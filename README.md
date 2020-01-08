@@ -1,3 +1,8 @@
+## Capture with the the project launched
+
+![picture](copter_arm.png)
+
+
 # Copter Arm Project
 
 Project designed to learn PID control, relying on ros_control + gazebo for sim/real scenarios, heavily inspired by the example given in the [Introduction to Control System Design - A First Look](https://www.edx.org/course/introduction-control-system-design-first-mitx-6-302-0x) online course from MIT.
@@ -51,7 +56,3 @@ The calibrated values of the potentiometer are in fact computed here as well [he
 It is worth to note that, in our scenario, there is a free joint (the one with the potentiometer) and an actuated joint (the one with the motor/helix couple), from the [URDF](http://wiki.ros.org/urdf) point of view. Thus, if one takes a look of the [controller configuration](config/controllers.yaml) there are two controllers that basically forward commands, and this is because in the ROS controls project there is no way to set such scenario for a PID control.
 
 To overcome this issue, the generic [`pid`](http://wiki.ros.org/pid) is used. This is reflected in the [launch file](launch/copter_arm_real.launch#L36-L47). For this to work, the [`/control_effor`](launch/copter_arm_real.launch#L11) topic is remapped, the [`/setpoint`](launch/copter_arm_real.launch#L54) transformed from the mouse readings, and the [`/state`](launch/copter_arm_real.launch#L56) from the `/joint_states` topic.
-
-## Capture with the the project launched
-
-![picture](copter_arm.png)
